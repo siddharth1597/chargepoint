@@ -43,18 +43,46 @@ const App = () => {
               zoom={12}
             />
             <div className="rightSection">
-              <ProgressBar value={data?.speed} unit="km/h" heading="Current Speed" />
-              <ProgressBar value={data?.soc} unit="%" heading="State of Charge" />
+              <ProgressBar 
+                value={data?.speed} 
+                unit="km/h" 
+                heading="Current Speed" 
+                enableAlert={data?.speed > 40} 
+              />
+              <ProgressBar 
+                value={data?.soc} 
+                unit="%" 
+                heading="State of Charge" 
+              />
               <div className="energyOdometerWrapper">
-                <HeadingWithText value={data?.energy} unit="kW" heading="Energy" />
-                <HeadingWithText value={data?.odo} unit="km" heading="Odometer" />
+                <HeadingWithText 
+                  value={data?.energy} 
+                  unit="kW" 
+                  heading="Energy" 
+                />
+                <HeadingWithText 
+                  value={data?.odo} 
+                  unit="km" 
+                  heading="Odometer" 
+                />
               </div>
             </div>
 
           </div>
           <div className="graphs">
-            <Graph xAxis={covertTimeStampToTime(data?.time)} yAxis={data?.speed} heading="Speed Profile" />
-            <Graph xAxis={covertTimeStampToTime(data?.time)} yAxis={data?.soc} heading="State of Charge Profile" />
+            <Graph 
+              xAxis={covertTimeStampToTime(data?.time)} 
+              yAxis={data?.speed} 
+              heading="Speed Profile" 
+              label="Speed" 
+            />
+            <Graph 
+              xAxis={covertTimeStampToTime(data?.time)} 
+              yAxis={data?.soc} 
+              heading="State of Charge Profile"
+              label="SOC %"
+              color="brown" 
+            />
           </div>
         </div>
         :

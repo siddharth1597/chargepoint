@@ -11,6 +11,15 @@
     height: 100%;
     display: flex;
 }
+.bar.alert {
+    background-color: rgb(255, 20, 20);
+}
+.alertText {
+    right: 20px;
+    top:  7.5px;
+    color: rgb(255, 20, 20);
+    position: absolute;
+}
 .barValue {
     left: 20px;
     top:  7.5px;

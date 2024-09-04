@@ -5,7 +5,7 @@ import "./Graph.css";
 import { getGraphDataSetConfig, getGraphOptionsConfig } from "../../configs";
 
 const Graph = (props) => {
-    const { xAxis, yAxis, heading } = props;
+    const { xAxis, yAxis, heading, label, color } = props;
     const [valueX, setValueX] = useState([]);
     const [valueY, setValueY] = useState([]);
 
@@ -27,9 +27,9 @@ const Graph = (props) => {
                 <Line
                     data={{
                         labels: valueX,
-                        datasets: [getGraphDataSetConfig(valueY)]
+                        datasets: [getGraphDataSetConfig(label, valueY, color)]
                     }}
-                    options={getGraphOptionsConfig(heading)}
+                    options={getGraphOptionsConfig(label, heading)}
                 />}
         </div>
     );
