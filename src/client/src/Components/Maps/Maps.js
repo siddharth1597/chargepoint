@@ -2,8 +2,9 @@ import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loade
 import { useEffect, useRef, useState } from 'react';
 import "./Maps.css";
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { accessTokenForDev } from '../../configs';
 
-mapboxgl.accessToken = "pk.eyJ1Ijoic2lkMTU1OTciLCJhIjoiY20wbmx2ZGl1MGRwazJqc2dlbGt0MGJjOSJ9.X-83Z676q9t6yf7QdiwXKg";
+mapboxgl.accessToken = accessTokenForDev;
 
 const Maps = (props) => {
     const { currentLat, currentLong, zoom } = props;

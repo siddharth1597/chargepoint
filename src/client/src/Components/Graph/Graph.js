@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import Chart from 'chart.js/auto';
 import { Line } from "react-chartjs-2";
-import "./Graph.css"
+import "./Graph.css";
+import { getGraphDataSetConfig, getGraphOptionsConfig } from "../../configs";
 
 const Graph = (props) => {
     const {xAxis, yAxis, heading} = props;
@@ -26,36 +27,9 @@ const Graph = (props) => {
         <Line
             data={{
                 labels: valueX,
-                datasets: [{
-                    data: valueY,
-                    fill: false,
-                    borderColor: '#0071bd',
-                    // pointStyle: false,
-                    tension: 0.4,
-                }]
+                datasets: [getGraphDataSetConfig(valueY)]
             }}
-            options={{
-            plugins: {
-                title: {
-                    display: true,
-                    text: heading
-                  },
-                legend: {
-                    display: false
-                },
-                scales: {
-                    x: {
-                        beginAtZero: true,
-                        suggestedMin: 50,
-                        suggestedMax: 100,
-                    },
-                    y: {    
-                        suggestedMin: 50,
-                        suggestedMax: 100,
-                    }
-                }
-            }
-            }}
+            options={getGraphOptionsConfig(heading)}
         />}
     </div>
   );

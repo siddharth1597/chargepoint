@@ -8,6 +8,7 @@ import { covertTimeStampToTime } from "./Utils/utils";
 
 const App = () => {
   const [data, setData] = useState(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const socket = new WebSocket("ws://localhost:3000");
@@ -19,9 +20,11 @@ const App = () => {
     };
     socket.onerror = () => {
       console.log("Connection error");
+      setError(true);
     };
     socket.onmessage = (event) => {
       const apiData = JSON.parse(event.data);
+      setError(false);
       setData(apiData);
     };
     return () => {
@@ -55,7 +58,7 @@ const App = () => {
           </div>
         </div>
         : 
-        <p>Loading please wait...</p>
+        <p>{error ? "Something went wrong. Please try again" : "Loading please wait..."}</p>
       }
     </div>
   );
