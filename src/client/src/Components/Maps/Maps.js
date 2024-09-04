@@ -10,26 +10,26 @@ const Maps = (props) => {
     const { currentLat, currentLong, zoom } = props;
     const mapContainer = useRef(null);
     const map = useRef(null);
-    const [markersList, setMarkersList] = useState([]);
+    let markersList = [];
 
     useEffect(() => {
         if (map.current) return;
         map.current = new mapboxgl.Map({
-          container: mapContainer.current,
-          style: 'mapbox://styles/mapbox/streets-v12',
-          center: [currentLong, currentLat],
-          zoom: zoom,
+            container: mapContainer.current,
+            style: 'mapbox://styles/mapbox/streets-v12',
+            center: [currentLong, currentLat],
+            zoom: zoom,
         });
     }, []);
 
     useEffect(() => {
         markersList?.forEach((marker) => marker.remove())
-        setMarkersList([]);
+        markersList.length = 0;
         const marker = new mapboxgl.Marker().setLngLat([currentLong, currentLat]).addTo(map.current);
-        setMarkersList([...markersList, marker])
+        markersList.push(marker)
         return () => {
             markersList?.forEach((marker) => marker.remove())
-            setMarkersList([]);
+            markersList.length = 0;
         }
     }, [currentLat, currentLong]);
 

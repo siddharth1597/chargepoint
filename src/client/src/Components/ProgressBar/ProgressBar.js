@@ -6,7 +6,7 @@ const ProgressBar = (props) => {
         <div className="progressWrapper">
             <h4 className='progressHeading'>{heading}</h4>
             <div className="progressBarContainer">
-                <div className="bar" style={{width: `${value}%`}}><span className="barValue">{value} {unit}</span></div>
+                <div className="bar" style={{ width: `${value}%` }}><span className="barValue">{value} {unit}</span></div>
             </div>
         </div>
     )

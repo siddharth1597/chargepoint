@@ -16,7 +16,7 @@ export const getGraphOptionsConfig = (graphHeading) => {
             title: {
                 display: true,
                 text: graphHeading,
-              },
+            },
             legend: {
                 display: false
             },
@@ -26,7 +26,7 @@ export const getGraphOptionsConfig = (graphHeading) => {
                     suggestedMin: 50,
                     suggestedMax: 100,
                 },
-                y: {    
+                y: {
                     suggestedMin: 50,
                     suggestedMax: 100,
                 }

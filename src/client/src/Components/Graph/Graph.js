@@ -5,33 +5,33 @@ import "./Graph.css";
 import { getGraphDataSetConfig, getGraphOptionsConfig } from "../../configs";
 
 const Graph = (props) => {
-    const {xAxis, yAxis, heading} = props;
+    const { xAxis, yAxis, heading } = props;
     const [valueX, setValueX] = useState([]);
     const [valueY, setValueY] = useState([]);
 
     useEffect(() => {
-        if(xAxis) {
+        if (xAxis) {
             setValueX([...valueX, xAxis]);
         }
     }, [xAxis])
 
     useEffect(() => {
-        if(yAxis) {
+        if (yAxis) {
             setValueY([...valueY, yAxis]);
         }
     }, [yAxis])
 
-  return (
-    <div className="chartContainer">
-      {valueX.length && valueY.length && 
-        <Line
-            data={{
-                labels: valueX,
-                datasets: [getGraphDataSetConfig(valueY)]
-            }}
-            options={getGraphOptionsConfig(heading)}
-        />}
-    </div>
-  );
+    return (
+        <div className="chartContainer">
+            {valueX.length && valueY.length &&
+                <Line
+                    data={{
+                        labels: valueX,
+                        datasets: [getGraphDataSetConfig(valueY)]
+                    }}
+                    options={getGraphOptionsConfig(heading)}
+                />}
+        </div>
+    );
 }
 export default Graph;

@@ -34,11 +34,11 @@ const App = () => {
 
   return (
     <div className="rootContainer">
-      {data ? 
+      {data ?
         <div className="parentContainer">
           <div className="wrapper">
-            <Maps 
-              currentLat={data?.gps?.split('|')[0]} 
+            <Maps
+              currentLat={data?.gps?.split('|')[0]}
               currentLong={data?.gps?.split('|')[1]}
               zoom={12}
             />
@@ -50,14 +50,14 @@ const App = () => {
                 <HeadingWithText value={data?.odo} unit="km" heading="Odometer" />
               </div>
             </div>
-            
+
           </div>
           <div className="graphs">
             <Graph xAxis={covertTimeStampToTime(data?.time)} yAxis={data?.speed} heading="Speed Profile" />
             <Graph xAxis={covertTimeStampToTime(data?.time)} yAxis={data?.soc} heading="State of Charge Profile" />
           </div>
         </div>
-        : 
+        :
         <p>{error ? "Something went wrong. Please try again" : "Loading please wait..."}</p>
       }
     </div>
