@@ -1,0 +1,18 @@
+.rootContainer {
+    padding: 24px;
+}
+
+.wrapper {
+    display: flex;
+    gap: 24px;
+}
+
+.rightSection {
+    display: flex;
+    flex-direction: column;
+}
+
+.energyOdometerWrapper {
+    display: flex;
+    gap: 64px;
+}

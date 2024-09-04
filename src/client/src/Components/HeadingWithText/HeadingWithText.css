@@ -1,0 +1,10 @@
+.detailWrapper {
+    padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.detailHeading {
+    margin: 0
+}

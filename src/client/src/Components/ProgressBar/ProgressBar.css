@@ -1,0 +1,19 @@
+.progressBarContainer {
+    width: 500px;
+    height: 36px;
+    background-color: #fff;
+    border: 1px solid #000;
+    position: relative;
+}
+.bar {
+    width: 50%;
+    background-color: rgb(43, 43, 43);
+    height: 100%;
+    display: flex;
+}
+.barValue {
+    left: 20px;
+    top:  7.5px;
+    color: white;
+    position: absolute;
+}
